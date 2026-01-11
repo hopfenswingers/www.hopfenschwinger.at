@@ -3,6 +3,12 @@
   src: url(../webfonts/Oswald/static/Oswald-ExtraLight.ttf);
 }
 
+@property --dark-text-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgb(40, 40, 40);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -25,10 +31,20 @@ html {
 
 .is-hopfen-yellow {
   background-color: rgb(255, 204, 102);
+  color: var(--dark-text-color);
+}
+
+.is-hopfen-yellow .content .title {
+  color: var(--dark-text-color);
 }
 
 .content a:link, .content a:visited {
   color: rgb(131, 105, 52);
+}
+@media (prefers-color-scheme: dark) {
+  .content a:link, .content a:visited {
+    color: rgb(255, 204, 102);
+  }
 }
 
 .hopfen-members .hopfen-logo {
@@ -48,6 +64,7 @@ html {
 
 .hopfen-members .table td, th {
   border: none !important;
+  color: var(--dark-text-color);
 }
 
 .hopfen-members .table td:first-of-type {
