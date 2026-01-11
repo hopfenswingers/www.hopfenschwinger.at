@@ -1,0 +1,79 @@
+@font-face {
+  font-family: oswald;
+  src: url(../webfonts/Oswald/static/Oswald-ExtraLight.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.box {
+  --bulma-box-radius: 0rem;
+}
+
+.is-hvcentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-hvcentered .content {
+  text-align: center;
+  width: 100%;
+  margin: 2em;
+}
+
+.is-hopfen-yellow {
+  background-color: rgb(255, 204, 102);
+}
+
+.content a:link, .content a:visited {
+  color: rgb(131, 105, 52);
+}
+
+.hopfen-members .hopfen-logo {
+  width: 50%;
+  margin-bottom: 1em;
+}
+
+.content .title {
+  text-transform: uppercase;
+  font-family: oswald, sans-serif;
+  font-weight: light;
+}
+
+.hopfen-members .table {
+  background-color: transparent;
+}
+
+.hopfen-members .table td, th {
+  border: none !important;
+}
+
+.hopfen-members .table td:first-of-type {
+  font-weight: bold;
+  width: 50%;
+}
+
+.hopfen-members .table .member-name {
+  font-weight: bold;
+  text-align: right;
+}
+
+.hopfen-members .table .member-role {
+  text-align: left;
+}
+
+.hopfen-about .content {
+  max-width: 30em;
+}
+
+.hopfen-photo-box .image {
+  box-shadow: var(--bulma-shadow);
+  width: 100%;
+  height: 100%;
+}
+
+.hopfen-photo-box .image img {
+  object-fit: cover;
+}
