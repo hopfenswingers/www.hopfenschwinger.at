@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <!--
 Derived from Bulma Personal Template by Muhammad Ubaid Raza: https://mubaidr.js.org
@@ -19,154 +19,239 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Hopfen Swingers</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/bulma-1.0.4.css" />
   <link rel="stylesheet" type="text/css" href="./css/hopfen.css">
   <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.7.2-web/css/fontawesome.css" />
   <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.7.2-web/css/regular.css" />
+  <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.7.2-web/css/solid.css" />
   <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.7.2-web/css/brands.css" />
 </head>
 
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar is-flex is-flex-direction-row is-justify-content-flex-end is-align-items-center">
-    <div class="navbar-brand">
-      <div class="navbar-item is-expanded">
-      </div>
-      <a class="navbar-item" href="https://www.facebook.com/hopfenschwinger" target="_blank">
-        <span class="icon">
-          <i class="fa-brands fa-facebook-f" aria-label="Facebook"></i>
-        </span>
+
+  <!-- Navigation -->
+  <nav class="hopfen-nav" aria-label="Hauptnavigation">
+    <a class="hopfen-nav-brand" href="#home">The Hopfen Swingers</a>
+
+    <button class="hopfen-nav-burger" data-nav-burger aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="hopfen-nav-links" data-nav-links>
+      <a href="#home">Home</a>
+      <a href="#events">Events</a>
+      <a href="#band">Die Band</a>
+      <a href="#kontakt">Anfrage</a>
+    </div>
+
+    <div class="hopfen-nav-social">
+      <a href="https://www.facebook.com/hopfenswingers" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-f" aria-label="Facebook"></i>
       </a>
-      <a class="navbar-item" href="https://www.instagram.com/hopfenswingers/" target="_blank">
-        <span class="icon">
-          <i class="fa-brands fa-instagram" aria-label="Instagram"></i>
-        </span>
+      <a href="https://www.instagram.com/hopfenswingers/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram" aria-label="Instagram"></i>
       </a>
-      <a class="navbar-item" href="#kontakt">
-        <span class="icon">
-          <i class="fa-regular fa-envelope" aria-label="Kontakt"></i>
-        </span>
-        <span>Kontakt</span>
+      <a href="https://open.spotify.com/intl-de/artist/105icnumTkyOhMHhoelHRZ?si=646ffadbe16d4e39" target="_blank" rel="noopener">
+        <i class="fa-brands fa-spotify" aria-label="Spotify"></i>
       </a>
     </div>
   </nav>
 
-  <!-- Bandmitglieder -->
-  <section class="section" id="members">
-    <div class="columns is-gapless">
-      <div class="column box hopfen-members is-hvcentered is-hopfen-yellow">
-        <div class="content">
-          <img class="hopfen-logo" src="./img/emblem-the-hopfenswingers.avif" alt="The Hopfen Swingers">
-          <!--<h3 class="title is-3">The Hopfen Swingers</h3>
-          <p class="subtitle is-5">Die Band zum Bier</p>-->
-
-          <table class="table is-fullwidth">
-            <tr>
-              <td class="member-name">Christian Wieder</td>
-              <td class="member-role">Trompete, Megaphon</td>
-            </tr>
-            <tr>
-              <td class="member-name">Emil Petsovits</td>
-              <td class="member-role">Basstrompete, Megaphon, Quetsche</td>
-            </tr>
-            <tr>
-              <td class="member-name">Thomas Scheu</td>
-              <td class="member-role">E-Bass, Megaphon</td>
-            </tr>
-            <tr>
-              <td class="member-name">Gabor Miko</td>
-              <td class="member-role">E-Gitarre</td>
-            </tr>
-            <tr>
-              <td class="member-name">Michael Draskovits</td>
-              <td class="member-role">Schlagzeug</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="column hopfen-photo-box">
-        <figure class="image is-5by4">
-            <img src="./img/band.avif" alt="The Hopfen Swingers spielen live">
-        </figure>
-      </div>
+  <!-- Hero: Gruppenfoto -->
+  <section id="home" class="hopfen-hero">
+    <div class="photo-placeholder">
+      <img src="./img/Gruppenfoto_Hopfenswingers.JPG">
     </div>
   </section>
 
-  <!-- Anfrage/Kontakt -->
-  <section class="section" id="kontakt">
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <div class="block is-hvcentered">
-          <div class="content">
-            <script language="JavaScript">
-              user = 'office';
-              site = 'hopfenschwinger.at';
-              document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
-              document.write('<i class="fa-regular fa-envelope fa-10x" aria-label="Anfrage-Email senden"></i></a>');
-            </script>
-          </div>
-        </div>
+  <!-- Events -->
+  <section id="events" class="section hopfen-events">
+    <div data-carousel>
+      <div class="hopfen-carousel-header">
+        <button class="hopfen-carousel-arrow" data-carousel-prev aria-label="Vorherige Events">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <h2 class="title is-2">Events</h2>
+
+        <button class="hopfen-carousel-arrow" data-carousel-next aria-label="Weitere Events">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="column">
-        <div class="block is-hvcentered">
-          <div class="content">
-            <h3 class="title is-2">Anfrage</h3>
-            <p>Ob private Feier, Firmenveranstaltungen oder öffentliche Events – wir sind für alle Schandtaten bereit und freuen uns über deine Anfrage!</p>
-            <script language="JavaScript">
-              user = 'office';
-              site = 'hopfenschwinger.at';
-              document.write('<a href=\"mailto:' + user + '@' + site + '\">');
-              document.write('<span class="icon"><i class="fa-regular fa-envelope" aria-label="Anfrage-Email senden"></i></span> ');
-              document.write(user + '@' + site + '</a>');
-            </script>
-          </div>
+
+      <div class="hopfen-carousel-track" data-carousel-track>
+        <div class="event-card">
+          <div class="event-date">Sa,<br>03.10.2026</div>
+          <div class="event-title">Blaufränkischland-Marathon</div>
+          <div class="event-location">Deutschkreutz</div>
+        </div>
+        <div class="event-card is-highlighted">
+          <div class="event-date">Sa,<br>17.10.2026</div>
+          <div class="event-title">Herbstrot</div>
+          <div class="event-location">Weingut Lang, Neckenmarkt</div>
+        </div>
+        <div class="event-card">
+          <div class="event-date">So,<br>25.10.2026</div>
+          <div class="event-title">Sautanz</div>
+          <div class="event-location">Weingut Pneisl, Deutschkreutz</div>
+        </div>
+         <div class="event-card is-highlighted">
+          <div class="event-date">Mo,<br>26.10.2026</div>
+          <div class="event-title">Familienwandertag</div>
+          <div class="event-location">Illmitz</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Was spielen wir -->
-  <section class="section" id="about">
+  <section id="ueber-uns" class="section is-hopfen-yellow">
     <div class="columns is-gapless">
-      <div class="column hopfen-photo-box">
-        <figure class="image is-5by4">
-          <img src="./img/megaphon.avif" alt="Gesungen, geblasen und gezupft">
-        </figure>
-      </div>
-      <div class="column box hopfen-about is-hvcentered is-hopfen-yellow">
+      <div class="column box hopfen-about is-hvcentered">
         <div class="content">
           <h4 class="title is-4">Mit Megaphon, Blech und etwas Strom</h4>
-          <!--<p class="subtitle is-5">verleihen wir unserem Bier den guten Ton</p>-->
 
-          <p>Bodenständig und dennoch außergewöhnlich. Mit unserem unvergleichlichem Retro-Sound hauchen wir so manchem Oldie neues Leben ein.</p>
+          <p>Bodenständig und dennoch außergewöhnlich.</p>
+
+	  <p>Mit unserem unvergleichlichem Retro-Sound hauchen wir so manchem Oldie neues Leben ein.</p>
 
           <p>Die größten Hits aus Blasmusik, Pop und Schlager werden auf eine völlig neue und trinkanimierende Weise interpretiert.</p>
+        </div>
+      </div>
+      <div class="column hopfen-photo-box">
+        <figure class="image is-5by4">
+         <img src="./img/Hopfenswingers_Emblem_weiß_transparent.png">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bandmitglieder -->
+  <section id="band" class="section hopfen-band is-hopfen-yellow">
+    <div data-carousel>
+      <div class="hopfen-carousel-header">
+        <button class="hopfen-carousel-arrow" data-carousel-prev aria-label="Vorheriges Bandmitglied">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+
+        <h2 class="title is-2">Die Band</h2>
+
+        <button class="hopfen-carousel-arrow" data-carousel-next aria-label="Nächstes Bandmitglied">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="hopfen-carousel-track" data-carousel-track>
+        <div class="member-card">
+          <div class="member-card-photo photo-placeholder">
+            <img src="./img/012_IP62058.jpg">
+          </div>
+          <div class="member-card-info">
+            <div class="member-name">Michael Draskovits</div>
+            <div class="member-role">Schlagzeug</div>
+          </div>
+        </div>
+
+        <div class="member-card is-dark">
+          <div class="member-card-photo photo-placeholder is-dark-placeholder">
+            <img src="./img/Emil.png">
+          </div>
+          <div class="member-card-info">
+            <div class="member-name">Emil Petsovits</div>
+            <div class="member-role">Basstrompete, Megaphon</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-card-photo photo-placeholder">
+            <img src="./img/Thomas.png">
+          </div>
+          <div class="member-card-info">
+            <div class="member-name">Thomas Scheu</div>
+            <div class="member-role">E-Bass, Megaphon</div>
+          </div>
+        </div>
+
+        <div class="member-card is-dark">
+          <div class="member-card-photo photo-placeholder is-dark-placeholder">
+            <img src="./img/Gabor.png">
+          </div>
+          <div class="member-card-info">
+            <div class="member-name">Gabor Miko</div>
+            <div class="member-role">E-Gitarre</div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-card-photo photo-placeholder">
+            <img src="./img/Christian.png">
+          </div>
+          <div class="member-card-info">
+            <div class="member-name">Christian Wieder</div>
+            <div class="member-role">Trompete, Megaphon</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="insta">
-    <div class="block">
-      <div class="content is-hvcentered">
-        <a href="https://www.instagram.com/hopfenswingers/" target="_blank">
-          <h3 class="title is-2"><i class="fa-brands fa-instagram" aria-label="Instagram"></i> Instagram</h3>
-        </a>
+  <!-- Anfrage/Kontakt -->
+  <section id="kontakt" class="section hopfen-kontakt">
+    <div class="hopfen-kontakt-row">
+      <div class="hopfen-kontakt-icon">
+        <script language="JavaScript">
+          user = 'office';
+          site = 'hopfenschwinger.at';
+          document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
+          document.write('<i class="fa-regular fa-envelope fa-10x" aria-label="Anfrage-Email senden"></i></a>');
+        </script>
       </div>
-      <div class="content is-hvcentered">
-        <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/23acbcbaa1845c998a394765cea79a33.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+      <div class="content hopfen-kontakt-text">
+        <h3 class="title is-2">Anfrage</h3>
+        <p>Ob private Feier, Firmenveranstaltungen oder öffentliche Events – wir sind für alle Schandtaten bereit und freuen uns über deine Anfrage!</p>
+      </div>
+      <div class="hopfen-kontakt-button">
+        <script language="JavaScript">
+          user = 'office';
+          site = 'hopfenschwinger.at';
+          document.write('<a class="hopfen-kontakt-mail" href=\"mailto:' + user + '@' + site + '\">');
+          document.write('<span class="icon"><i class="fa-regular fa-envelope" aria-label="Anfrage-Email senden"></i></span> ');
+          document.write(user + '@' + site + '</a>');
+        </script>
       </div>
     </div>
   </section>
 
-  <!-- Copyright/Impressum -->
-  <div class="block is-hvcentered">
-    <div class="content is-small">
-      <p>© 2025 Mag. Michael Draskovits</p>
-    </div>
-  </div>
+  <section id="insta" class="section hopfen-insta">
+    <h3 class="title is-2">
+      <i class="fa-brands fa-instagram" aria-label="Instagram"></i> Instagram
+    </h3>
 
+    <div class="hopfen-insta-embed">
+      <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/23acbcbaa1845c998a394765cea79a33.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="hopfen-footer">
+    <div class="content">
+      <div class="hopfen-footer-social">
+        <a href="https://www.facebook.com/hopfenswingers" target="_blank" rel="noopener">
+          <i class="fa-brands fa-facebook-f" aria-label="Facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/hopfenswingers/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram" aria-label="Instagram"></i>
+        </a>
+        <a href="https://open.spotify.com/intl-de/artist/105icnumTkyOhMHhoelHRZ?si=646ffadbe16d4e39" target="_blank" rel="noopener">
+          <i class="fa-brands fa-spotify" aria-label="Spotify"></i>
+        </a>
+      </div>
+      <p>© 2026 The Hopfen Swingers. All rights reserved. — <a href="impressum.html">Impressum</a></p>
+    </div>
+  </footer>
+
+  <script src="./js/hopfen.js"></script>
 </body>
 
 </html>

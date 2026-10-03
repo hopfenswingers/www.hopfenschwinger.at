@@ -1,16 +1,48 @@
-@font-face {
-  font-family: oswald;
-  src: url(../webfonts/Oswald/static/Oswald-ExtraLight.ttf);
-}
+/* ===== Fonts ===================================================== */
+/* Anton für große Überschriften/Namen/Datum, Montserrat für Navigation
+   & Fließtext. Beide werden im <head> über Google Fonts geladen. */
 
+/* ===== Tokens ====================================================== */
 @property --dark-text-color {
   syntax: "<color>";
   inherits: false;
   initial-value: rgb(40, 40, 40);
 }
 
+:root {
+  --hopfen-yellow: rgb(230, 196, 86);
+  --hopfen-yellow-deep: rgb(238, 190, 74);
+  --hopfen-dark: rgb(31, 29, 27);
+  --hopfen-dark-soft: rgb(46, 43, 40);
+  --hopfen-cream: rgb(250, 248, 244);
+  --hopfen-grey: rgb(226, 226, 224);
+  --dark-text-color: rgb(40, 40, 40);
+  --hopfen-radius: 0px;
+}
+
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--dark-text-color);
+  background-color: var(--hopfen-cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .box {
@@ -30,7 +62,7 @@ html {
 }
 
 .is-hopfen-yellow {
-  background-color: rgb(255, 204, 102);
+  background-color: var(--hopfen-yellow);
   color: var(--dark-text-color);
 }
 
@@ -41,56 +73,533 @@ html {
 .content a:link, .content a:visited {
   color: rgb(131, 105, 52);
 }
-@media (prefers-color-scheme: dark) {
-  .content a:link, .content a:visited {
-    color: rgb(255, 204, 102);
+
+.content .title, .hopfen-carousel-header .title, .hopfen-insta .title {
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+a, button {
+  outline-offset: 3px;
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--hopfen-dark);
+}
+
+/* ===== Platzhalter-Fotos =========================================== */
+/* Diese Boxen ersetzen echte Fotos, bis ihr eigene Bilder einsetzt.
+   Einfach durch <img src="./img/..."> ersetzen, sobald die Fotos da sind. */
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 2px, transparent 2px, transparent 14px);
+  background-color: var(--hopfen-grey);
+  color: rgb(120, 118, 114);
+  text-align: center;
+  padding: 1em;
+}
+.photo-placeholder i {
+  font-size: 2.2rem;
+}
+.photo-placeholder span {
+  font-size: 0.85rem;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.photo-placeholder.is-dark-placeholder {
+  background-color: rgb(58, 55, 52);
+  color: rgb(200, 197, 193);
+}
+
+/* ===== Navbar ======================================================= */
+.hopfen-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
+  padding: 1em 1.5em;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}
+.hopfen-nav-brand {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+  color: var(--dark-text-color);
+  white-space: nowrap;
+}
+.hopfen-nav-brand:hover {
+  color: var(--dark-text-color);
+}
+.hopfen-nav-links {
+  display: flex;
+  gap: 1.75em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+.hopfen-nav-links a {
+  color: var(--dark-text-color);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.hopfen-nav-links a:hover {
+  border-bottom-color: var(--hopfen-yellow-deep);
+}
+.hopfen-nav-social {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.hopfen-nav-social a {
+  color: var(--dark-text-color);
+  font-size: 1rem;
+}
+.hopfen-nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4em;
+}
+.hopfen-nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--dark-text-color);
+  margin: 4px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .hopfen-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--hopfen-cream);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+  .hopfen-nav-links.is-open {
+    display: flex;
+  }
+  .hopfen-nav-links a {
+    padding: 1em 1.5em;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .hopfen-nav-burger {
+    display: block;
   }
 }
 
-.hopfen-members .hopfen-logo {
-  width: 50%;
-  margin-bottom: 1em;
+/* ===== Hero ========================================================= */
+.hopfen-hero {
+  position: relative;
+  background-color: var(--hopfen-cream);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+.hopfen-hero .photo-placeholder {
+  min-height: 70vh;
+  aspect-ratio: unset;
+  padding: 0;
+  gap: 0;
+  background: none;
+}
+.hopfen-hero .photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .hopfen-hero .photo-placeholder {
+    min-height: 60vh;
+  }
+  .hopfen-hero .photo-placeholder img {
+    /* Schneidet links+rechts je 10% der Bildbreite weg, BEVOR cover das
+       Ergebnis in die Box einpasst – nur unterhalb von 768px aktiv. */
+    object-view-box: inset(0% 10% 0% 10%);
+  }
 }
 
-.content .title {
-  text-transform: uppercase;
-  font-family: oswald, sans-serif;
-  font-weight: light;
+/* ===== Karussell-Grundgerüst ========================================
+   Wird für Events- und Band-Karussell genutzt: horizontal scrollbarer
+   Track mit Scroll-Snap plus zwei Pfeil-Buttons, die per JS scrollen. */
+.hopfen-carousel-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: var(--bulma-block-spacing);
+}
+.hopfen-carousel-header .hopfen-carousel-arrow {
+  margin-bottom: var(--bulma-block-spacing);
+}
+.hopfen-carousel-header .title {
+  text-align: center;
+  margin-bottom: var(--bulma-block-spacing);
+}
+.hopfen-carousel-track {
+  display: flex;
+  gap: 1.5em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 0.25em;
+  scrollbar-width: none;
+  width: 100%;
+  /* Zentriert den Inhalt, solange er in den sichtbaren Bereich passt.
+     "safe" sorgt dafür, dass bei Überlauf (mehr Karten als Platz) trotzdem
+     von links nach rechts gescrollt werden kann, statt Inhalt am Rand
+     abzuschneiden. */
+  justify-content: safe center;
+}
+.hopfen-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.hopfen-carousel-track > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+.hopfen-carousel-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.25);
+  background: transparent;
+  color: var(--dark-text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 120ms ease;
+}
+.hopfen-carousel-arrow:hover {
+  background-color: rgba(0,0,0,0.06);
+}
+.hopfen-carousel-arrow[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+.hopfen-carousel-arrow.is-on-dark {
+  border-color: rgba(255,255,255,0.4);
+  color: var(--hopfen-cream);
+}
+.hopfen-carousel-arrow.is-on-dark:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
-.hopfen-members .table {
-  background-color: transparent;
+/* ===== Events ======================================================= */
+.hopfen-events {
+  background-color: var(--hopfen-cream);
+  padding: 4em 1.5em;
 }
-
-.hopfen-members .table td, th {
-  border: none !important;
+.hopfen-events .hopfen-carousel-header .title {
   color: var(--dark-text-color);
 }
-
-.hopfen-members .table td:first-of-type {
-  font-weight: bold;
-  width: 50%;
+.event-card {
+  width: 220px;
+  border: 3px solid var(--hopfen-yellow);
+  border-radius: 6px;
+  padding: 1.5em 1.25em;
+  text-align: center;
+  background: var(--hopfen-cream);
+}
+.event-card .event-date {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  margin-bottom: 0.75em;
+}
+.event-card .event-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
+.event-card .event-location {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgb(110, 108, 104);
+}
+.event-card.is-highlighted {
+  background: var(--hopfen-yellow);
+  border-color: var(--hopfen-yellow-deep);
 }
 
-.hopfen-members .table .member-name {
-  font-weight: bold;
-  text-align: right;
+/* ===== Über-uns / Megaphon-Sektion ================================= */
+/* Bulmas Standard-".section"-Padding hier auf 0, damit Bild-Spalte
+   wirklich bis an Fensterrand & an den Events-Bereich heranreicht.
+   Der Text bekommt sein Padding stattdessen selbst (siehe .hopfen-about). */
+#ueber-uns.section {
+  padding: 0;
 }
-
-.hopfen-members .table .member-role {
-  text-align: left;
+#ueber-uns .columns {
+  gap: 0;
+  margin: 0;
 }
-
+#ueber-uns .column {
+  padding: 0;
+  margin: 0;
+}
 .hopfen-about .content {
   max-width: 30em;
+  text-align: left;
 }
-
+.hopfen-about .content .title {
+  color: var(--dark-text-color);
+  font-size: clamp(3rem, 5vw, 4.6rem);
+}
+.hopfen-about {
+  margin: 0;
+  box-shadow: none;
+  background-color: var(--hopfen-yellow);
+  color: var(--dark-text-color);
+  justify-content: flex-end;
+  padding: 7em 3em 4em 9em;
+}
+.hopfen-about-emblem {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.hopfen-photo-box {
+  position: relative;
+}
 .hopfen-photo-box .image {
-  box-shadow: var(--bulma-shadow);
+  position: absolute;
+  inset: 0;
+  box-shadow: none;
+  background-color: var(--hopfen-yellow);
   width: 100%;
   height: 100%;
 }
-
 .hopfen-photo-box .image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top right;
+  padding: 0 0 0 0;
+}
+.hopfen-photo-box .image .photo-placeholder {
   object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  /* .columns wird hier zwingend als Flex-Container mit umgekehrter
+     Reihenfolge erzwungen. Nur "order" auf der Spalte reicht nicht,
+     falls Bulma .columns bei schmaler Ansicht selbst auf
+     "display:block" umschaltet (dann hat "order" keine Wirkung mehr,
+     und es zählt wieder die HTML-Reihenfolge: Text vor Bild). */
+  #ueber-uns .columns {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .hopfen-photo-box {
+    aspect-ratio: 4 / 3;
+    min-height: 220px;
+  }
+  .hopfen-about {
+    padding: 4em 1.5em 2.5em 1.5em;
+  }
+}
+
+/* ===== Band-Karussell ================================================ */
+.hopfen-band {
+  padding: 2em 1.5em;
+}
+.hopfen-band .hopfen-carousel-header .title {
+  color: var(--dark-text-color);
+}
+.member-card {
+  width: 260px;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 11 / 20;
+}
+.member-card-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.member-card-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Sobald ein echtes Foto drinsteckt, sollen Padding & gestreifter
+   Platzhalter-Hintergrund weg sein, damit das Foto bis zum Rand reicht.
+   Karten ohne Foto (nur Icon+Text) behalten ihren Platzhalter-Look. */
+.member-card-photo:has(img) {
+  padding: 0;
+  gap: 0;
+  background: none;
+}
+.member-card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25em;
+  background: transparent;
+  color: var(--hopfen-cream);
+}
+.member-card-info .member-name {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: var(--hopfen-cream);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(0, 0, 0, 0.5);
+}
+.member-card-info .member-role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--hopfen-cream);
+  margin-top: 0.35em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== Anfrage / Kontakt ============================================ */
+.hopfen-kontakt {
+  background-image: url(../img/Hintergrund_Kreide.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--hopfen-cream);
+}
+.hopfen-kontakt-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.hopfen-kontakt-text {
+  max-width: 26em;
+}
+.hopfen-kontakt-text .title {
+  margin-top: 0;
+}
+.hopfen-kontakt-text p:last-child {
+  margin-bottom: 0;
+}
+.hopfen-kontakt-button {
+  flex-shrink: 0;
+}
+@media screen and (max-width: 768px) {
+  .hopfen-kontakt-text {
+    text-align: center;
+  }
+}
+.hopfen-kontakt .title {
+  color: var(--hopfen-cream);
+}
+.hopfen-kontakt a:link,
+.hopfen-kontakt a:visited {
+  color: var(--hopfen-yellow);
+}
+.hopfen-kontakt-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: 700;
+  border: 3px solid rgba(250, 248, 244, 0.6);
+  border-radius: 6px;
+  padding: 0.75em 1.5em;
+}
+.hopfen-kontakt-mail:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ===== Instagram ===================================================== */
+.hopfen-insta {
+  background-color: var(--hopfen-cream);
+  padding: 4em 1.5em;
+  text-align: center;
+}
+.hopfen-insta .title {
+  color: var(--hopfen-yellow);
+  margin-bottom: 1em;
+}
+.hopfen-insta-embed {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.hopfen-insta-embed .lightwidget-widget {
+  width: 100%;
+  border: 0;
+  overflow: hidden;
+}
+
+/* ===== Footer ======================================================== */
+.hopfen-footer {
+  background: var(--hopfen-yellow);
+  padding: 1.5em;
+  text-align: center;
+}
+.hopfen-footer .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+}
+.hopfen-footer-social {
+  display: flex;
+  gap: 1em;
+}
+.hopfen-footer-social a:link,
+.hopfen-footer-social a:visited {
+  color: var(--dark-text-color);
+}
+.hopfen-footer p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ===== Impressum ===================================================== */
+/* Die fixe Navbar hat keinen eigenen Hintergrund (sie liegt auf der
+   Startseite über dem Gruppenfoto) – hier braucht es daher genug
+   Abstand oben, damit der Inhalt nicht darunter verschwindet. */
+.hopfen-impressum {
+  padding: 9em 1.5em 4em;
+  max-width: 40em;
+  margin: 0 auto;
+}
+.hopfen-impressum .title,
+.hopfen-impressum p strong {
+  color: var(--hopfen-dark);
 }
