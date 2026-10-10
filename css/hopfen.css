@@ -218,27 +218,37 @@ a:focus-visible, button:focus-visible {
   margin-left: calc(50% - 50vw);
 }
 .hopfen-hero .photo-placeholder {
-  min-height: 70vh;
-  aspect-ratio: unset;
+  display: block;
+  min-height: 0;
+  height: auto;
   padding: 0;
-  gap: 0;
   background: none;
 }
+/* Fließende Bildhöhe für das Gruppenfoto (Original 1600×1067 = 3:2):
+   - ab ca. 1000px Fensterbreite: natürliches 3:2, nichts wird beschnitten
+   - darunter wird die Box stufenlos höher, das Foto (object-fit: cover)
+     dadurch seitlich beschnitten: bei 390px Breite ca. 10 % je Seite
+   Keine Mindesthöhe mehr → kein leerer Streifen mehr über/unter dem Foto
+   und der Events-Bereich schließt immer direkt an. */
 .hopfen-hero .photo-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  height: max(66.69vw, calc(56vw + 107px));
+  object-fit: cover;
+  object-position: center;
 }
-@media screen and (max-width: 768px) {
-  .hopfen-hero .photo-placeholder {
-    min-height: 60vh;
-  }
-  .hopfen-hero .photo-placeholder img {
-    /* Schneidet links+rechts je 10% der Bildbreite weg, BEVOR cover das
-       Ergebnis in die Box einpasst – nur unterhalb von 768px aktiv. */
-    object-view-box: inset(0% 10% 0% 10%);
-  }
+
+/* Für Suchmaschinen/Screenreader vorhanden, optisch aber unsichtbar (h1) */
+.hopfen-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ===== Karussell-Grundgerüst ========================================
