@@ -313,6 +313,12 @@ a:focus-visible, button:focus-visible {
   opacity: 0.3;
   cursor: default;
 }
+/* Pfeile komplett ausblenden, solange alle Karten ohne Scrollen Platz haben
+   (wird in hopfen.js gesetzt). Bei Überlauf bleiben sie sichtbar und werden
+   an den Enden nur grau. */
+.hopfen-carousel-arrow.hopfen-arrow-hidden {
+  display: none;
+}
 .hopfen-carousel-arrow.is-on-dark {
   border-color: rgba(255,255,255,0.4);
   color: var(--hopfen-cream);
@@ -355,9 +361,33 @@ a:focus-visible, button:focus-visible {
   font-size: 0.85rem;
   color: rgb(110, 108, 104);
 }
+/* Jede zweite Karte (1., 3., 5., ...) ist gelb hervorgehoben. Weil vergangene
+   Termine per JS komplett entfernt werden, bleibt der Wechsel automatisch
+   sauber. ".is-highlighted" kann weiterhin manuell gesetzt werden. */
+.event-card:nth-child(odd),
 .event-card.is-highlighted {
   background: var(--hopfen-yellow);
   border-color: var(--hopfen-yellow-deep);
+}
+
+/* Leerzustand: erscheint, wenn alle Termine vergangen sind (siehe hopfen.js) */
+.hopfen-events-empty {
+  display: none;
+  text-align: center;
+  margin: 1em 0 0;
+}
+.hopfen-events-empty a:link,
+.hopfen-events-empty a:visited {
+  color: rgb(131, 105, 52);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.hopfen-events .is-empty .hopfen-events-empty {
+  display: block;
+}
+.hopfen-events .is-empty .hopfen-carousel-track,
+.hopfen-events .is-empty .hopfen-carousel-arrow {
+  display: none;
 }
 
 /* ===== Über-uns / Megaphon-Sektion ================================= */
