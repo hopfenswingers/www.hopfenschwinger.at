@@ -265,6 +265,9 @@ a:focus-visible, button:focus-visible {
 .hopfen-carousel-header .hopfen-carousel-arrow {
   margin-bottom: var(--bulma-block-spacing);
 }
+.hopfen-carousel-header.is-arrows-only {
+  margin-bottom: 0;
+}
 .hopfen-carousel-header .title {
   text-align: center;
   margin-bottom: var(--bulma-block-spacing);
@@ -511,24 +514,25 @@ a:focus-visible, button:focus-visible {
   right: 0;
   padding: 1.25em;
   background: transparent;
-  color: var(--hopfen-cream);
+  color: var(--hopfen-dark);
+  text-align: center;
 }
 .member-card-info .member-name {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   line-height: 1.15;
-  color: var(--hopfen-cream);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(0, 0, 0, 0.5);
+  color: var(--hopfen-dark);
+  text-shadow: 0 0 8px rgba(250, 248, 244, 0.7);
 }
 .member-card-info .member-role {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 0.85rem;
-  color: var(--hopfen-cream);
+  color: var(--hopfen-dark);
   margin-top: 0.35em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 8px rgba(250, 248, 244, 0.7);
 }
 
 /* ===== Anfrage / Kontakt ============================================ */
