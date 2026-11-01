@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
       iframe.setAttribute('allowtransparency', 'true');
       iframe.setAttribute('title', 'Instagram-Feed von The Hopfen Swingers');
       instaEmbed.innerHTML = '';
+      instaEmbed.classList.add('is-loaded');
       instaEmbed.appendChild(script);
       instaEmbed.appendChild(iframe);
     });
