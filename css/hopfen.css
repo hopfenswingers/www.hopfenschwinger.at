@@ -707,3 +707,13 @@ a:focus-visible, button:focus-visible {
 .hopfen-impressum p strong {
   color: var(--hopfen-dark);
 }
+
+/* Lange Ein-Wort-Überschriften (z. B. „Datenschutzerklärung“) passen auf
+   schmalen Displays nicht in 2.5rem. Statt mitten im Wort umzubrechen
+   (Bulmas Standard: word-break: break-word), wird die Schriftgröße fließend
+   verkleinert; erst wenn es gar nicht reicht, wird korrekt silbengetrennt. */
+.hopfen-impressum .hopfen-long-title {
+  font-size: clamp(1.6rem, 8.2vw, 2.5rem);
+  word-break: normal;
+  hyphens: auto;
+}
