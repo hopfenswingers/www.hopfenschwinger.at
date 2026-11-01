@@ -185,7 +185,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <img src="./img/Michael.jpg" alt="Porträt von Michael Draskovits" loading="lazy" decoding="async">
           </div>
           <div class="member-card-info">
-            <div class="member-name">Michael<br>Draskovits</div>
+            <div class="member-name">Michael Draskovits</div>
             <div class="member-role">Schlagzeug</div>
           </div>
         </div>
@@ -195,7 +195,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <img src="./img/Emil.jpg" alt="Porträt von Emil Petsovits" loading="lazy" decoding="async">
           </div>
           <div class="member-card-info">
-            <div class="member-name">Emil<br>Petsovits</div>
+            <div class="member-name">Emil Petsovits</div>
             <div class="member-role">Basstrompete, Megaphon</div>
           </div>
         </div>
@@ -205,7 +205,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <img src="./img/Thomas.jpg" alt="Porträt von Thomas Scheu" loading="lazy" decoding="async">
           </div>
           <div class="member-card-info">
-            <div class="member-name">Thomas<br>Scheu</div>
+            <div class="member-name">Thomas Scheu</div>
             <div class="member-role">E-Bass, Megaphon</div>
           </div>
         </div>
@@ -215,7 +215,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <img src="./img/Gabor.jpg" alt="Porträt von Gabor Miko" loading="lazy" decoding="async">
           </div>
           <div class="member-card-info">
-            <div class="member-name">Gabor<br>Miko</div>
+            <div class="member-name">Gabor Miko</div>
             <div class="member-role">E-Gitarre</div>
           </div>
         </div>
@@ -225,7 +225,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <img src="./img/Christian.jpg" alt="Porträt von Christian Wieder" loading="lazy" decoding="async">
           </div>
           <div class="member-card-info">
-            <div class="member-name">Christian<br>Wieder</div>
+            <div class="member-name">Christian Wieder</div>
             <div class="member-role">Trompete, Megaphon</div>
           </div>
         </div>
@@ -265,8 +265,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
     </h2>
 
-    <div class="hopfen-insta-embed">
-      <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/23acbcbaa1845c998a394765cea79a33.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+    <div class="hopfen-insta-embed" data-insta-embed data-src="https://lightwidget.com/widgets/23acbcbaa1845c998a394765cea79a33.html">
+      <!-- Der Feed (LightWidget/Instagram) wird erst nach Klick geladen, siehe js/hopfen.js -->
+      <div class="hopfen-insta-consent">
+        <p>
+	<button type="button" class="hopfen-insta-load" data-insta-load>Instagram-Feed laden</button>
+	</p>
+	<p>
+          Beim Laden des Instagram-Feeds werden Daten (u. a. deine IP-Adresse) an LightWidget und
+          Instagram (Meta) übertragen. Mehr dazu in der
+          <a href="datenschutz.html#instagram">Datenschutzerklärung</a>.
+        </p>        
+      </div>
     </div>
   </section>
 
@@ -284,11 +294,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <i class="fa-brands fa-spotify" aria-hidden="true"></i>
         </a>
       </div>
-      <p>© 2026 The Hopfen Swingers. All rights reserved. — <a href="impressum.html">Impressum</a></p>
+      <p>© 2026 The Hopfen Swingers. All rights reserved. — <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
     </div>
   </footer>
 
   <script src="./js/hopfen.js"></script>
+
+  <!-- Besucherstatistik (GoatCounter, cookiefrei) -->
+  <script data-goatcounter="https://hopfenswingers.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
 </body>
 
   <!-- Besucherstatistik (GoatCounter, cookiefrei) -->

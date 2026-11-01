@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Instagram-Feed (LightWidget) erst nach Klick laden – der Klick gilt als Einwilligung.
+  var instaEmbed = document.querySelector('[data-insta-embed]');
+  var instaBtn = document.querySelector('[data-insta-load]');
+  if (instaEmbed && instaBtn) {
+    instaBtn.addEventListener('click', function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.lightwidget.com/widgets/lightwidget.js';
+      var iframe = document.createElement('iframe');
+      iframe.src = instaEmbed.getAttribute('data-src');
+      iframe.className = 'lightwidget-widget';
+      iframe.setAttribute('scrolling', 'no');
+      iframe.setAttribute('allowtransparency', 'true');
+      iframe.setAttribute('title', 'Instagram-Feed von The Hopfen Swingers');
+      instaEmbed.innerHTML = '';
+      instaEmbed.classList.add('is-loaded');
+      instaEmbed.appendChild(script);
+      instaEmbed.appendChild(iframe);
+    });
+  }
+
   // Vergangene Termine ausblenden.
   // Jede Karte trägt data-date="JJJJ-MM-TT" (optional data-end für mehrtägige
   // Events). Am Veranstaltungstag selbst bleibt der Termin noch sichtbar.

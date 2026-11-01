@@ -607,6 +607,66 @@ a:focus-visible, button:focus-visible {
   overflow: hidden;
 }
 
+/* Hinweis + Button, solange der Instagram-Feed noch nicht geladen wurde */
+.hopfen-insta-consent {
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 2em 1.5em;
+  border: 3px solid var(--hopfen-yellow);
+  border-radius: 6px;
+  background: var(--hopfen-cream);
+}
+.hopfen-insta-consent p {
+  margin: 0 0 1.25em;
+  font-size: 0.9rem;
+}
+.hopfen-insta-consent a:link,
+.hopfen-insta-consent a:visited {
+  color: rgb(131, 105, 52);
+  text-decoration: underline;
+}
+.hopfen-insta-load {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--hopfen-dark);
+  background: var(--hopfen-yellow);
+  border: 0;
+  border-radius: 6px;
+  padding: 0.75em 1.5em;
+  cursor: pointer;
+}
+.hopfen-insta-load:hover {
+  background: var(--hopfen-yellow-deep);
+}
+
+@media screen and (max-width: 768px) {
+  /* Hinweisbox kompakter, damit sie nicht höher ist als der geladene Feed */
+  .hopfen-insta-consent {
+    padding: 1.25em 1em;
+  }
+  .hopfen-insta-consent p {
+    font-size: 0.8rem;
+    margin-bottom: 1em;
+  }
+  /* Geladener Feed: bis an den Bildschirmrand, 2,5× so breit wie der Bildschirm
+     und seitlich wischbar → die Bilder werden dadurch deutlich größer */
+  .hopfen-insta-embed.is-loaded {
+    margin: 0 -1.5em;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .hopfen-insta-embed.is-loaded::-webkit-scrollbar {
+    display: none;
+  }
+  .hopfen-insta-embed.is-loaded .lightwidget-widget {
+    display: block;
+    width: 250%;
+    max-width: none;
+  }
+}
+
 /* ===== Footer ======================================================== */
 .hopfen-footer {
   background: var(--hopfen-yellow);
