@@ -1,6 +1,40 @@
 /* ===== Fonts ===================================================== */
 /* Anton für große Überschriften/Namen/Datum, Montserrat für Navigation
-   & Fließtext. Beide werden im <head> über Google Fonts geladen. */
+   & Fließtext. Beide liegen lokal unter /webfonts (kein Google-Aufruf).
+   Dateien: Subset Latin + Latin-Ext, SIL Open Font License 1.1
+   (Lizenztext jeweils als OFL.txt im selben Ordner). */
+
+@font-face {
+  font-family: 'Anton';
+  src: url('../webfonts/anton/Anton-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../webfonts/montserrat/Montserrat-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../webfonts/montserrat/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../webfonts/montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ===== Tokens ====================================================== */
 @property --dark-text-color {
