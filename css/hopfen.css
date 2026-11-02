@@ -122,6 +122,35 @@ a:focus-visible, button:focus-visible {
   outline: 3px solid var(--hopfen-dark);
 }
 
+/* ===== Icons ======================================================== */
+/* Inline-SVG-Sprite (siehe Anfang der HTML-Dateien) statt Font Awesome.
+   Ersetzt die vier Icon-Fonts (~320 KB) durch wenige Kilobyte Markup. */
+.hopfen-icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.hopfen-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+/* entspricht Font Awesomes .fa-10x */
+.hopfen-icon-10x {
+  width: 10em;
+  height: 10em;
+  vertical-align: middle;
+}
+/* <picture> soll das Layout nicht beeinflussen */
+.photo-placeholder picture,
+.member-card-photo picture {
+  display: contents;
+}
+
 /* ===== Platzhalter-Fotos =========================================== */
 /* Diese Boxen ersetzen echte Fotos, bis ihr eigene Bilder einsetzt.
    Einfach durch <img src="./img/..."> ersetzen, sobald die Fotos da sind. */
@@ -571,7 +600,12 @@ a:focus-visible, button:focus-visible {
 
 /* ===== Anfrage / Kontakt ============================================ */
 .hopfen-kontakt {
-  background-image: url(../img/Hintergrund_Kreide.jpg);
+  background-color: rgb(42, 42, 40);
+  background-image: url(../img/Hintergrund_Kreide-1600.jpg);
+  background-image: image-set(
+    url(../img/Hintergrund_Kreide-1600.webp) type("image/webp"),
+    url(../img/Hintergrund_Kreide-1600.jpg) type("image/jpeg")
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
