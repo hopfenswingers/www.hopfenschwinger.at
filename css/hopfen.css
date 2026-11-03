@@ -354,6 +354,20 @@ a:focus-visible, button:focus-visible {
 .hopfen-carousel-track::-webkit-scrollbar {
   display: none;
 }
+/* Der Track ist per Tab erreichbar (tabindex="0"), damit sich die Karten
+   auch ohne Maus mit den Pfeiltasten scrollen lassen. */
+.hopfen-carousel-track:focus-visible {
+  outline: 3px solid var(--hopfen-dark);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Sanftes Scrollen nur, wenn keine Bewegungsreduktion gewünscht ist.
+   Steht bewusst nach der Regel oben, sonst gewinnt deren "smooth". */
+@media (prefers-reduced-motion: reduce) {
+  .hopfen-carousel-track {
+    scroll-behavior: auto;
+  }
+}
 .hopfen-carousel-track > * {
   scroll-snap-align: start;
   flex: 0 0 auto;
@@ -784,4 +798,59 @@ a:focus-visible, button:focus-visible {
   font-size: clamp(1.6rem, 8.2vw, 2.5rem);
   word-break: normal;
   hyphens: auto;
+}
+
+/* ===== 404-Seite ==================================================== */
+/* Gleiche Grundidee wie Impressum: Abstand für die fixe Navbar, zentriert,
+   begrenzte Lesebreite. Die große „404“ ist rein dekorativ (aria-hidden). */
+.hopfen-404 {
+  padding: 9em 1.5em 5em;
+  max-width: 36em;
+  margin: 0 auto;
+  text-align: center;
+}
+/* Footer an den unteren Rand, auch wenn der Inhalt kurz ist */
+body.hopfen-404-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+body.hopfen-404-page .hopfen-404 {
+  flex: 1;
+}
+.hopfen-404-code {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(4.5rem, 20vw, 8rem);
+  line-height: 0.9;
+  margin: 0 0 0.1em;
+  color: var(--hopfen-dark);
+}
+.hopfen-404 .title {
+  color: var(--hopfen-dark);
+}
+.hopfen-404 .content {
+  margin: 1.5em 0;
+}
+.hopfen-404-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  justify-content: center;
+  margin: 0;
+}
+.hopfen-404-links a {
+  display: inline-block;
+  padding: 0.7em 1.3em;
+  border: 3px solid var(--hopfen-dark);
+  border-radius: 6px;
+  color: var(--hopfen-dark);
+  font-weight: 700;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.hopfen-404-links a:hover,
+.hopfen-404-links a:focus-visible {
+  background-color: var(--hopfen-dark);
+  color: var(--hopfen-cream);
+  text-decoration: none;
 }

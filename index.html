@@ -35,6 +35,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The Hopfen Swingers – Gruppenfoto der Band">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://hopfenschwinger.at/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="The Hopfen Swingers – Gruppenfoto der Band">
 
   <!-- Favicons -->
   <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
@@ -137,7 +139,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         </button>
       </div>
 
-      <div class="hopfen-carousel-track" data-carousel-track>
+      <div class="hopfen-carousel-track" data-carousel-track
+           tabindex="0" role="region" aria-label="Events – mit den Pfeiltasten scrollbar">
         <div class="event-card" data-date="2026-10-17">
           <div class="event-date">Sa,<br>17.10.2026</div>
           <div class="event-title">Herbstrot</div>
@@ -193,7 +196,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         </button>
       </div>
 
-      <div class="hopfen-carousel-track" data-carousel-track>
+      <div class="hopfen-carousel-track" data-carousel-track
+           tabindex="0" role="region" aria-label="Bandmitglieder – mit den Pfeiltasten scrollbar">
         <div class="member-card">
           <div class="member-card-photo photo-placeholder">
             <picture>
@@ -266,25 +270,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   <section id="kontakt" class="section hopfen-kontakt">
     <div class="hopfen-kontakt-row">
       <div class="hopfen-kontakt-icon">
-        <script language="JavaScript">
-          user = 'office';
-          site = 'hopfenschwinger.at';
-          document.write('<a href=\"mailto:' + user + '@' + site + '\" aria-label=\"Email senden\">');
-          document.write('<svg class="hopfen-icon hopfen-icon-10x" aria-hidden="true" focusable="false"><use href="#icon-envelope"/></svg></a>');
-        </script>
+        <a href="mailto:office@hopfenschwinger.at" aria-label="E-Mail an office@hopfenschwinger.at senden">
+          <svg class="hopfen-icon hopfen-icon-10x" aria-hidden="true" focusable="false"><use href="#icon-envelope"/></svg>
+        </a>
       </div>
       <div class="content hopfen-kontakt-text">
         <h2 class="title is-2">Anfrage</h2>
         <p>Ob private Feier, Firmenveranstaltungen oder öffentliche Events – wir sind für alle Schandtaten bereit und freuen uns über deine Anfrage!</p>
       </div>
       <div class="hopfen-kontakt-button">
-        <script language="JavaScript">
-          user = 'office';
-          site = 'hopfenschwinger.at';
-          document.write('<a class="hopfen-kontakt-mail" href=\"mailto:' + user + '@' + site + '\">');
-          document.write('<span class="icon"><svg class="hopfen-icon" aria-hidden="true" focusable="false"><use href="#icon-envelope"/></svg></span> ');
-          document.write(user + '@' + site + '</a>');
-        </script>
+        <a class="hopfen-kontakt-mail" href="mailto:office@hopfenschwinger.at">
+          <span class="icon"><svg class="hopfen-icon" aria-hidden="true" focusable="false"><use href="#icon-envelope"/></svg></span>
+          office@hopfenschwinger.at
+        </a>
       </div>
     </div>
   </section>
