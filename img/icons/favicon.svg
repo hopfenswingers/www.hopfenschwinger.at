@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
   <title>The Hopfen Swingers</title>
   <rect width="64" height="64" rx="14" fill="#e6c456"/>
-  <g fill="#1f1d1b">
-    <rect x="17" y="12" width="10" height="40" rx="3"/>
-    <rect x="37" y="12" width="10" height="40" rx="3"/>
-    <rect x="17" y="27.5" width="30" height="9" rx="3"/>
-  </g>
+  <line x1="11.85" y1="52.15" x2="18.21" y2="45.79" stroke="#1f1d1b" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M 17.15 46.85 C 23.16 50.74 31.65 50.74 38.36 45.44 C 45.08 40.13 48.26 32.71 49.32 25.28 C 49.68 21.39 49.68 17.15 49.68 14.32 C 46.85 14.32 42.61 14.32 38.72 14.68 C 31.29 15.74 23.87 18.92 18.56 25.64 C 13.26 32.35 13.26 40.84 17.15 46.85 Z" fill="#1f1d1b"/>
+  <path d="M 33.91 45.93 Q 31.29 32.71 18.07 30.09" fill="none" stroke="#e6c456" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 40.56 41.26 Q 36.95 27.05 22.74 23.44" fill="none" stroke="#e6c456" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 45.36 34.76 Q 42.25 21.75 29.24 18.64" fill="none" stroke="#e6c456" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 48.55 27.33 Q 46.14 17.86 36.67 15.45" fill="none" stroke="#e6c456" stroke-width="1.8" stroke-linecap="round"/>
 </svg>
