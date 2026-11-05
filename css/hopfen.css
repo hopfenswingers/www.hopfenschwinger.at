@@ -79,6 +79,36 @@ body {
   font-weight: 400;
 }
 
+/* Sprungmarke: liegt im Normalfall über dem Viewport und wird erst bei
+   Tastaturfokus eingeblendet. Ziel ist das <main> der jeweiligen Seite. */
+.hopfen-skip {
+  position: absolute;
+  top: 0;
+  left: 1em;
+  z-index: 60;
+  padding: 0.75em 1.25em;
+  background: var(--hopfen-dark);
+  color: var(--hopfen-cream);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 0 0 6px 6px;
+  transform: translateY(-150%);
+  transition: transform 120ms ease;
+}
+.hopfen-skip:focus,
+.hopfen-skip:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid var(--hopfen-cream);
+  outline-offset: -6px;
+}
+
+/* Die fixe Navigation überdeckt sonst den Sprung ans Inhaltsende */
+#inhalt {
+  scroll-margin-top: 4.5rem;
+}
+
 .box {
   --bulma-box-radius: 0rem;
 }
@@ -104,8 +134,13 @@ body {
   color: var(--dark-text-color);
 }
 
-.content a:link, .content a:visited {
+/* Fließtext-Links: Farbe allein genügt nicht (WCAG 1.4.1), deshalb immer
+   unterstrichen. Der Braunton bleibt, er erfüllt auf Creme 4,9 : 1. */
+.content a:link,
+.content a:visited {
   color: rgb(131, 105, 52);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .content .title, .hopfen-carousel-header .title, .hopfen-insta .title {
@@ -676,8 +711,18 @@ a:focus-visible, button:focus-visible {
   text-align: center;
 }
 .hopfen-insta .title {
-  color: var(--hopfen-yellow);
+  /* Tinte statt Gelb: Gelb auf Creme ergibt nur 1,6 : 1.
+     Das Gelb bleibt als Akzentstrich unter der Überschrift erhalten. */
+  color: var(--hopfen-dark);
   margin-bottom: 1em;
+}
+.hopfen-insta .title::after {
+  content: "";
+  display: block;
+  width: 3.5em;
+  height: 0.12em;
+  margin: 0.3em auto 0;
+  background: var(--hopfen-yellow);
 }
 .hopfen-insta-embed {
   max-width: 960px;
@@ -774,6 +819,19 @@ a:focus-visible, button:focus-visible {
   font-weight: 400;
   font-size: 0.8rem;
   margin: 0;
+}
+/* Links im Footer: Braun auf Gelb ergibt nur 3,1 : 1. Tinte bringt 9,9 : 1,
+   die Unterstreichung trennt sie zusätzlich vom Fließtext. */
+.hopfen-footer .content p a:link,
+.hopfen-footer .content p a:visited {
+  color: var(--hopfen-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.hopfen-footer .content p a:hover,
+.hopfen-footer .content p a:focus-visible {
+  text-decoration-thickness: 2px;
 }
 
 /* ===== Impressum ===================================================== */
