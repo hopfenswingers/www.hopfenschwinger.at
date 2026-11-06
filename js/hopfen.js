@@ -2,18 +2,48 @@
 document.addEventListener('DOMContentLoaded', function () {
   var burger = document.querySelector('[data-nav-burger]');
   var menu = document.querySelector('[data-nav-links]');
+  var nav = burger ? burger.closest('.hopfen-nav') : null;
   if (burger && menu) {
+    var setOpen = function (open) {
+      menu.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    };
+    var close = function (focusBurger) {
+      if (!menu.classList.contains('is-open')) return;
+      setOpen(false);
+      if (focusBurger) burger.focus();
+    };
+
     burger.addEventListener('click', function () {
-      var isOpen = menu.classList.toggle('is-open');
-      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      var open = !menu.classList.contains('is-open');
+      setOpen(open);
+      // Fokus mit ins Menü nehmen, sonst läuft Tab am offenen Menü vorbei
+      if (open) {
+        var first = menu.querySelector('a');
+        if (first) first.focus();
+      }
     });
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        menu.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
+        setOpen(false);
       });
     });
+    // Escape schließt das Menü und gibt den Fokus an den Burger zurück
+    if (nav) {
+      nav.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' || event.key === 'Esc') close(true);
+      });
+      // Klick außerhalb schließt ohne Fokuswechsel
+      document.addEventListener('click', function (event) {
+        if (!nav.contains(event.target)) close(false);
+      });
+    }
   }
+
+  // Footer-Jahr aktuell halten (das HTML bleibt ohne JS korrekt)
+  var yearEl = document.querySelector('[data-year]');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // Instagram-Feed (LightWidget) erst nach Klick laden – der Klick gilt als Einwilligung.
   var instaEmbed = document.querySelector('[data-insta-embed]');
